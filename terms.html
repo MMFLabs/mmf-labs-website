@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — Solide</title>
+  <meta name="description" content="Terms and Conditions for the Solide app."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --rose:  #FF6B9D; --mango: #FFB347; --sage: #B8E0D2;
+      --mid:   #2D2D3A; --dark:  #1E1E28; --muted: #9090A8;
+      --light: #C8C8DC; --white: #FFFFFF; --cream: #FAF7F4;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--white); line-height: 1.7; }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(30,30,40,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-logo span { font-size: 1rem; font-weight: 700; letter-spacing: 3px; color: var(--white); }
+    .nav-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .875rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .page-hero {
+      padding: 80px 5% 60px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .page-hero .eyebrow {
+      font-size: .75rem; font-weight: 600; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 1rem;
+    }
+    .page-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; margin-bottom: .75rem; }
+    .page-hero .updated { font-size: .85rem; color: var(--muted); font-weight: 300; }
+
+    .content-wrap {
+      max-width: 780px; margin: 0 auto; padding: 60px 5% 100px;
+    }
+    .toc {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 1.75rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .toc h2 { font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: var(--light); }
+    .toc ol { padding-left: 1.25rem; }
+    .toc li { margin-bottom: .4rem; }
+    .toc a { color: var(--rose); text-decoration: none; font-size: .9rem; font-weight: 400; transition: opacity .2s; }
+    .toc a:hover { opacity: .75; }
+
+    .legal-section { margin-bottom: 3rem; }
+    .legal-section h2 {
+      font-size: 1.3rem; font-weight: 600; color: var(--white);
+      margin-bottom: 1rem; padding-bottom: .6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .legal-section h3 { font-size: 1rem; font-weight: 600; color: var(--light); margin: 1.25rem 0 .5rem; }
+    .legal-section p { font-size: .95rem; color: rgba(255,255,255,0.75); font-weight: 300; margin-bottom: .85rem; }
+    .legal-section ul, .legal-section ol { padding-left: 1.5rem; margin-bottom: .85rem; }
+    .legal-section li { font-size: .95rem; color: rgba(255,255,255,0.75); font-weight: 300; margin-bottom: .4rem; }
+    .legal-section a { color: var(--rose); text-decoration: underline; text-underline-offset: 3px; }
+
+    .highlight-box {
+      border-radius: 12px; padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0; font-size: .9rem; line-height: 1.65;
+    }
+    .highlight-box.warning {
+      background: rgba(255,179,71,0.08);
+      border: 1px solid rgba(255,179,71,0.25);
+      color: rgba(255,255,255,0.8);
+    }
+    .highlight-box.warning strong { color: var(--mango); }
+    .highlight-box.info {
+      background: rgba(184,224,210,0.08);
+      border: 1px solid rgba(184,224,210,0.2);
+      color: rgba(255,255,255,0.8);
+    }
+    .highlight-box.info strong { color: var(--sage); }
+
+    .placeholder {
+      background: rgba(255,107,157,0.1);
+      border: 1px dashed rgba(255,107,157,0.4);
+      border-radius: 6px; padding: .2rem .5rem;
+      color: var(--rose); font-weight: 500;
+      font-style: italic; font-size: .9em;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2.5rem 5%;
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      align-items: center; justify-content: space-between;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 8px; }
+    .footer-logo span { font-size: .95rem; font-weight: 700; letter-spacing: 3px; color: var(--muted); }
+    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: .85rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: .78rem; color: var(--muted); width: 100%; }
+
+    @media (max-width: 640px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>SOLIDE</span><div class="nav-dot"></div></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <p class="eyebrow">Legal</p>
+  <h1>Terms &amp; Conditions</h1>
+  <p class="updated">Last updated: <span>[27 May 2026]</span></p>
+</header>
+
+<div class="content-wrap">
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#s1">Who we are</a></li>
+      <li><a href="#s2">Acceptance of these terms</a></li>
+      <li><a href="#s3">The Solide service</a></li>
+      <li><a href="#s4">Creating an account</a></li>
+      <li><a href="#s5">Subscriptions and billing</a></li>
+      <li><a href="#s6">Health and fitness disclaimer</a></li>
+      <li><a href="#s7">Mental health content disclaimer</a></li>
+      <li><a href="#s8">User conduct</a></li>
+      <li><a href="#s9">Intellectual property</a></li>
+      <li><a href="#s10">Third-party services</a></li>
+      <li><a href="#s11">Disclaimer of warranties</a></li>
+      <li><a href="#s12">Limitation of liability</a></li>
+      <li><a href="#s13">Indemnification</a></li>
+      <li><a href="#s14">Termination</a></li>
+      <li><a href="#s15">Governing law and disputes</a></li>
+      <li><a href="#s16">Changes to these terms</a></li>
+      <li><a href="#s17">Contact us</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="legal-section" id="s1">
+    <h2>1. Who we are</h2>
+    <p>Solide is operated by <span>MMF Labs</span> ("we", "us", "our"). You can contact us at <a href="mailto:contact@mmf-labs.com"><span>contact@mmf-labs.com</span></a>.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="legal-section" id="s2">
+    <h2>2. Acceptance of these terms</h2>
+    <p>By downloading, installing, or using the Solide mobile application ("the App") or any related website or service (collectively, "the Service"), you agree to be bound by these Terms &amp; Conditions ("Terms"). If you do not agree, do not use the Service.</p>
+    <p>You must be at least 16 years old to use Solide. By using the App, you confirm that you meet this age requirement.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="legal-section" id="s3">
+    <h2>3. The Solide service</h2>
+    <p>Solide provides a fitness and wellness application that includes:</p>
+    <ul>
+      <li>A curated exercise library with guides</li>
+      <li>A smart session builder that generates personalised workout sessions</li>
+      <li>Workout logging and progress tracking tools</li>
+      <li>Educational content on health, longevity, and exercise science</li>
+      <li>Guided breath work sessions</li>
+    </ul>
+    <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time, with or without notice. We are not liable to you or any third party for any such changes.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="legal-section" id="s4">
+    <h2>4. Creating an account</h2>
+    <p>To access most features of Solide, you must create an account. You agree to:</p>
+    <ul>
+      <li>Provide accurate, current, and complete information during registration</li>
+      <li>Keep your login credentials secure and confidential</li>
+      <li>Notify us immediately of any unauthorised use of your account</li>
+      <li>Not share your account with any other person</li>
+    </ul>
+    <p>You are responsible for all activity that occurs under your account. We are not liable for any loss resulting from unauthorised use of your account where you have failed to keep your credentials secure.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="legal-section" id="s5">
+    <h2>5. Subscriptions and billing</h2>
+    <h3>5.1 Paid subscriptions</h3>
+    <p>We offer a main paid subscription plan. Current pricing is displayed within the App and is subject to change. By subscribing, you authorise us (or our payment processor) to charge your selected payment method on a recurring basis.</p>
+    <h3>5.2 Billing and renewal</h3>
+    <p>Subscriptions renew automatically at the end of each billing period unless cancelled. You may cancel at any time via your Apple App Store or Google Play account settings. Cancellation takes effect at the end of the current billing period — you will not receive a refund for the unused portion of the current period unless required by applicable law.</p>
+    <h3>5.3 Free trials</h3>
+    <p>We may offer free trials from time to time. If a trial is offered, details of the trial period and what happens at its end will be made clear before you begin.</p>
+    <h3>5.4 Refunds</h3>
+    <p>All subscription purchases made through the Apple App Store are subject to Apple's refund policy. All purchases made through Google Play are subject to Google's refund policy. We do not process refunds directly for in-app purchases.</p>
+    <h3>5.5 Price changes</h3>
+    <p>We may change subscription prices with reasonable advance notice. Continued use of the paid Service after a price change takes effect constitutes your agreement to the new price.</p>
+  </div>
+
+  <!-- 6 -->
+  <div class="legal-section" id="s6">
+    <h2>6. Health and fitness disclaimer</h2>
+    <div class="highlight-box warning">
+      <strong>Important — please read carefully.</strong> Solide is a general fitness and wellness application. It is not a medical device, and nothing in the App, on our website, or in any communication from us constitutes medical advice, diagnosis, or treatment.
+    </div>
+    <p>Before beginning any new exercise programme, you should consult your doctor or a qualified healthcare professional, particularly if you:</p>
+    <ul>
+      <li>Have a pre-existing medical condition</li>
+      <li>Have a history of injury or chronic pain</li>
+      <li>Are pregnant or have recently given birth</li>
+      <li>Are new to exercise or have been inactive for an extended period</li>
+      <li>Are taking prescription medication that may affect your ability to exercise</li>
+    </ul>
+    <p>Exercise carries inherent risks, including the risk of injury. By using Solide, you accept full responsibility for ensuring that you are physically able to undertake the activities suggested by the App. We accept no liability for any injury, illness, or adverse health outcome arising from your use of the Service.</p>
+    <p>If you experience pain, dizziness, shortness of breath, or any other concerning symptom during exercise, stop immediately and seek medical attention.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="legal-section" id="s7">
+    <h2>7. Mental health content disclaimer</h2>
+    <div class="highlight-box warning">
+      <strong>Important.</strong> The Solide App includes educational content about the relationship between exercise and mental health, including depression and anxiety. This content is for informational and educational purposes only and is not a substitute for professional mental health care.
+    </div>
+    <p>Solide is not a mental health service or a crisis service. If you are experiencing a mental health crisis or are in immediate danger, please contact:</p>
+    <ul>
+      <li><strong>UK:</strong> Samaritans — 116 123 (free, 24/7)</li>
+      <li><strong>US:</strong> 988 Suicide and Crisis Lifeline — call or text 988</li>
+      <li><strong>Emergency services:</strong> 999 (UK) / 911 (US) / 112 (EU)</li>
+    </ul>
+    <p>Solide does not facilitate communication between users and mental health professionals. Any recommendation to use Solide by a healthcare provider is an independent clinical decision made by that provider; we are not responsible for the advice of third-party clinicians.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="legal-section" id="s8">
+    <h2>8. User conduct</h2>
+    <p>When using Solide, you agree not to:</p>
+    <ul>
+      <li>Use the Service for any unlawful purpose or in violation of any applicable laws or regulations</li>
+      <li>Attempt to gain unauthorised access to any part of the Service or its related systems</li>
+      <li>Reverse-engineer, decompile, or disassemble any part of the App</li>
+      <li>Use automated tools (bots, scrapers, crawlers) to access or interact with the Service</li>
+      <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
+      <li>Upload or transmit any harmful, offensive, or unlawful content</li>
+      <li>Interfere with or disrupt the integrity or performance of the Service</li>
+    </ul>
+  </div>
+
+  <!-- 9 -->
+  <div class="legal-section" id="s9">
+    <h2>9. Intellectual property</h2>
+    <p>All content within the Solide App and website — including but not limited to text, images, video, audio, graphics, user interface design, and software — is owned by or licensed to us and is protected by applicable intellectual property laws.</p>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable licence to use the App for your personal, non-commercial purposes, subject to these Terms. You may not reproduce, distribute, modify, create derivative works from, publicly display, or exploit any content from the Service without our prior written consent.</p>
+    <p>Any scientific content in the App is presented for educational purposes. While we reference peer-reviewed publications, we make no claim of ownership over third-party research. All cited works remain the intellectual property of their respective authors and publishers.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="legal-section" id="s10">
+    <h2>10. Third-party services</h2>
+    <p>The Service is distributed through the Apple App Store and Google Play Store. Your use of those platforms is subject to their respective terms and conditions. We are not responsible for the practices of Apple, Google, or any other third-party service provider.</p>
+    <p>The App may contain links to third-party websites or services. We do not control, endorse, or accept responsibility for those websites or their content.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="legal-section" id="s11">
+    <h2>11. Disclaimer of warranties</h2>
+    <p>To the fullest extent permitted by applicable law, the Service is provided "as is" and "as available" without any warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, accuracy, or non-infringement.</p>
+    <p>We do not warrant that the Service will be uninterrupted, error-free, or free of viruses or other harmful components. We do not warrant that any information provided through the Service is accurate, complete, or current.</p>
+    <p>Nothing in these Terms shall exclude or limit any warranty implied by law that it would be unlawful to exclude or limit.</p>
+  </div>
+
+  <!-- 12 -->
+  <div class="legal-section" id="s12">
+    <h2>12. Limitation of liability</h2>
+    <p>To the fullest extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or goodwill, arising out of or in connection with your use of, or inability to use, the Service.</p>
+    <p>Our total liability to you for any claim arising out of or relating to these Terms or the Service shall not exceed the amount you paid to us (if anything) in the twelve months preceding the claim.</p>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities. In such jurisdictions, our liability shall be limited to the maximum extent permitted by law.</p>
+  </div>
+
+  <!-- 13 -->
+  <div class="legal-section" id="s13">
+    <h2>13. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Solide and its operators, affiliates, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your access to or use of the Service, your violation of these Terms, or your infringement of any third-party rights.</p>
+  </div>
+
+  <!-- 14 -->
+  <div class="legal-section" id="s14">
+    <h2>14. Termination</h2>
+    <p>You may stop using Solide and delete your account at any time by following the account deletion process within the App.</p>
+    <p>We reserve the right to suspend or terminate your access to the Service, with or without notice, if we believe you have violated these Terms or for any other reason at our discretion. Upon termination, your licence to use the App immediately ceases.</p>
+    <p>Provisions that by their nature should survive termination (including but not limited to intellectual property rights, disclaimers, limitation of liability, and governing law) shall survive any termination of these Terms.</p>
+  </div>
+
+  <!-- 15 -->
+  <div class="legal-section" id="s15">
+    <h2>15. Governing law and disputes</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of <span>France</span>. Any dispute arising out of or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of <span>France</span>.</p>
+    <p>If you are a consumer resident in the European Union or United Kingdom, nothing in this clause shall affect your right to rely on any mandatory provisions of the law of the country in which you are resident.</p>
+  </div>
+
+  <!-- 16 -->
+  <div class="legal-section" id="s16">
+    <h2>16. Changes to these terms</h2>
+    <p>We may update these Terms from time to time. When we do, we will revise the "last updated" date at the top of this page. For material changes, we will provide reasonable notice via the App or by email. Your continued use of the Service after any changes constitutes your acceptance of the new Terms.</p>
+    <p>We encourage you to review these Terms periodically.</p>
+  </div>
+
+  <!-- 17 -->
+  <div class="legal-section" id="s17">
+    <h2>17. Contact us</h2>
+    <p>If you have any questions about these Terms, please contact us:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:contact@mmf-labs.com"><span>contact@mmf-labs.com</span></a></li>
+      <!-- <li><strong>Address:</strong> <span class="placeholder">[Your registered address]</span></li> -->
+    </ul>
+
+  </div>
+
+</div><!-- /content-wrap -->
+
+<footer>
+  <div class="footer-logo"><span>SOLIDE</span><div class="nav-dot"></div></div>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+  <p class="footer-copy">&copy; <script>document.write(new Date().getFullYear())</script> Solide. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
