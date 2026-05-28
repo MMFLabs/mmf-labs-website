@@ -4,234 +4,475 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MMF Labs</title>
-  <meta name="description" content="MMF Labs is an AI, product, geospatial, mobile/web development consulting company. We also develop our own apps."/>
+  <meta name="description" content="MMF Labs — AI research, product, computer vision, geospatial, and mobile/web consulting. Published researchers, conference speakers, and hands-on builders."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%235C2A6E'/><text x='16' y='21' font-family='Georgia,serif' font-weight='700' font-size='11' fill='%23FFFFFF' text-anchor='middle' letter-spacing='1'>MMF</text></svg>"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --rose:    #FF6B9D;
-      --mango:   #FFB347;
-      --blush:   #FFE5F0;
-      --sage:    #B8E0D2;
-      --mid:     #2D2D3A;
-      --dark:    #1E1E28;
-      --muted:   #9090A8;
-      --light:   #C8C8DC;
+      --butter:  #FFF4E6;
+      --cream:   #FFFAF5;
+      --coral:   #E84E3B;
+      --coral-lt:#FCDDD9;
+      --plum:    #5C2A6E;
+      --plum-lt: #EBE0F0;
+      --gold:    #F0B429;
+      --gold-lt: #FEF3D0;
+      --mint:    #B8DCCB;
+      --ink:     #1A0E22;
+      --ink-60:  #6B5877;
+      --ink-30:  #C0B0CA;
+      --ink-10:  #EDE8F2;
       --white:   #FFFFFF;
-      --cream:   #FAF7F4;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--dark);
-      color: var(--white);
-      line-height: 1.6;
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--butter);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+
+    /* ── NAV ──────────────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 68px;
-      background: rgba(30,30,40,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 5%; height: 66px;
+      background: rgba(255,244,230,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1.5px solid var(--ink-10);
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo span {
-      font-size: 1.15rem; font-weight: 700; letter-spacing: 3px;
-      color: var(--white);
+    .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .nav-logo-text {
+      font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 900;
+      color: var(--ink); letter-spacing: -0.5px;
     }
-    .nav-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-logo-dot {
+      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--coral); margin-left: 1px; margin-bottom: 8px; vertical-align: middle;
+    }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
     .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: .875rem;
-      font-weight: 500; transition: color .2s;
+      color: var(--ink-60); text-decoration: none;
+      font-size: 0.82rem; font-weight: 500; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--ink); }
     .nav-cta {
-      background: var(--rose); color: var(--white);
-      padding: .5rem 1.25rem; border-radius: 24px;
-      font-size: .875rem; font-weight: 600; text-decoration: none;
-      transition: opacity .2s;
+      background: var(--plum); color: var(--white);
+      padding: 0.55rem 1.4rem; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s; display: inline-block;
     }
-    .nav-cta:hover { opacity: .88; }
+    .nav-cta:hover { background: var(--coral); transform: translateY(-1px); }
 
-    /* ── HERO ────────────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────── */
     .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 5% 80px;
-      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 110px 5% 80px; position: relative; overflow: hidden;
     }
-    .hero::before {
-      content: '';
-      position: absolute; top: -200px; left: 50%;
-      transform: translateX(-50%);
-      width: 900px; height: 900px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,107,157,0.12) 0%, transparent 70%);
-      pointer-events: none;
+    .blob {
+      position: absolute; pointer-events: none;
+      border-radius: 50%; filter: blur(60px); opacity: 0.45;
     }
-    .hero-eyebrow {
-      font-size: .8rem; font-weight: 600; letter-spacing: 4px;
-      color: var(--rose); text-transform: uppercase; margin-bottom: 1.5rem;
+    .blob-1 { width: 520px; height: 520px; background: var(--coral-lt); top: -100px; right: -100px; animation: drift 8s ease-in-out infinite; }
+    .blob-2 { width: 380px; height: 380px; background: var(--plum-lt); bottom: -60px; left: -80px; animation: drift 11s ease-in-out infinite reverse; }
+    .blob-3 { width: 260px; height: 260px; background: var(--gold-lt); top: 40%; right: 20%; animation: drift 9s ease-in-out infinite 2s; }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(20px, -20px) scale(1.04); }
+      66%  { transform: translate(-15px, 15px) scale(0.97); }
     }
-    .hero h1 {
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      font-weight: 800; line-height: 1.08;
-      margin-bottom: 1.5rem; color: var(--white);
-    }
-    .hero h1 em { font-style: normal; color: var(--rose); }
-    .hero p {
-      max-width: 560px; font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--light); font-weight: 300; margin-bottom: 3rem;
-    }
-    .store-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-    .store-btn {
-      display: flex; align-items: center; gap: .75rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 14px; padding: .9rem 1.6rem;
-      text-decoration: none; color: var(--white);
-      transition: background .2s, border-color .2s;
-    }
-    .store-btn:hover {
-      background: rgba(255,255,255,0.13);
-      border-color: rgba(255,255,255,0.25);
-    }
-    .store-btn svg { width: 28px; height: 28px; flex-shrink: 0; }
-    .store-btn-text { text-align: left; }
-    .store-btn-text small { display: block; font-size: .65rem; opacity: .7; font-weight: 400; }
-    .store-btn-text strong { display: block; font-size: .95rem; font-weight: 600; }
-    .hero-note {
-      margin-top: 1.5rem; font-size: .8rem; color: var(--muted); font-weight: 400;
+    .sparkle { position: absolute; pointer-events: none; font-size: 1.4rem; opacity: 0.5; animation: spin-float 6s ease-in-out infinite; }
+    .sparkle:nth-child(1) { top: 18%; right: 12%; animation-delay: 0s; font-size: 1.1rem; }
+    .sparkle:nth-child(2) { top: 72%; right: 28%; animation-delay: 1.5s; font-size: 0.9rem; }
+    .sparkle:nth-child(3) { top: 30%; left: 8%; animation-delay: 3s; }
+    .sparkle:nth-child(4) { bottom: 22%; right: 8%; animation-delay: 0.8s; font-size: 1.8rem; opacity: 0.25; }
+    @keyframes spin-float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%  { transform: translateY(-12px) rotate(20deg); }
     }
 
-    /* ── SECTION SHARED ──────────────────────────────────── */
+    .hero-inner { position: relative; z-index: 1; max-width: 900px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--white); border: 1.5px solid var(--ink-10); border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--ink-60); margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(4rem, 10vw, 9rem); font-weight: 900;
+      line-height: 0.92; letter-spacing: -3px; color: var(--ink);
+      margin-bottom: 2rem; animation: fadeUp 0.65s 0.1s ease both;
+    }
+    .hero h1 .italic-word { font-style: italic; color: var(--coral); }
+    .hero h1 .underline-word { position: relative; display: inline-block; }
+    .hero h1 .underline-word::after {
+      content: ''; position: absolute; left: 0; bottom: 4px;
+      width: 100%; height: 6px; background: var(--gold); border-radius: 3px; z-index: -1;
+    }
+
+    .hero-sub-row {
+      display: flex; align-items: flex-start; gap: 3.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.65s 0.2s ease both;
+    }
+    .hero-desc { max-width: 400px; font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: var(--ink-60); }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.2rem; }
+    .tag {
+      display: inline-block; background: var(--white);
+      border: 1.5px solid var(--ink-10); border-radius: 8px;
+      padding: 0.4rem 1rem; font-size: 0.78rem; font-weight: 500; color: var(--ink);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s; cursor: default;
+    }
+    .tag:hover { border-color: var(--coral); background: var(--coral-lt); transform: rotate(-2deg) scale(1.05); }
+    .tag.plum:hover { border-color: var(--plum); background: var(--plum-lt); }
+    .tag.gold:hover { border-color: var(--gold); background: var(--gold-lt); }
+
+    .hero-cta-row {
+      margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.65s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--plum); color: var(--white);
+      padding: 0.85rem 2rem; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(92,42,110,0.25);
+    }
+    .btn-primary:hover { background: var(--coral); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,78,59,0.3); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--ink);
+      padding: 0.85rem 2rem; border-radius: 100px;
+      border: 1.5px solid var(--ink-10);
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--ink-30); background: var(--white); }
+
+    /* ── MARQUEE ──────────────────────────────────── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1.5px solid var(--ink-10); border-bottom: 1.5px solid var(--ink-10);
+      background: var(--plum); padding: 0.9rem 0;
+    }
+    .marquee-track {
+      display: flex; gap: 0; animation: marquee 26s linear infinite; width: max-content;
+    }
+    .marquee-item {
+      white-space: nowrap; font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.7); padding: 0 2.5rem;
+    }
+    .marquee-item strong { font-style: normal; font-weight: 700; color: var(--white); }
+    .marquee-sep { color: var(--gold); padding: 0 0.5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION SHARED ───────────────────────────── */
     section { padding: 100px 5%; }
-    .section-label {
-      font-size: .75rem; font-weight: 600; letter-spacing: 4px;
-      text-transform: uppercase; margin-bottom: 1rem;
+    .section-eyebrow {
+      font-family: 'Caveat', cursive; font-size: 1.15rem; font-weight: 700;
+      color: var(--coral); margin-bottom: 0.75rem; display: block;
     }
     .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 900; line-height: 1.05;
+      letter-spacing: -1.5px; color: var(--ink); margin-bottom: 1.25rem;
     }
-    .section-sub {
-      font-size: 1.05rem; color: var(--light);
-      font-weight: 300; max-width: 540px;
-    }
+    .section-title em { font-style: italic; color: var(--coral); }
 
-    /* ── FEATURES ────────────────────────────────────────── */
-    .features { background: rgba(255,255,255,0.02); }
-    .features-header { text-align: center; margin-bottom: 4rem; }
-    .features-header .section-sub { margin: 0 auto; }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+    /* ── CREDIBILITY BAR ──────────────────────────── */
+    .cred-bar {
+      background: var(--white);
+      border-bottom: 1.5px solid var(--ink-10);
+      padding: 2rem 5%;
     }
-    .feature-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px; padding: 2rem;
-      transition: border-color .2s, background .2s;
-    }
-    .feature-card:hover {
-      border-color: rgba(255,107,157,0.3);
-      background: rgba(255,107,157,0.04);
-    }
-    .feature-icon {
-      width: 48px; height: 48px; border-radius: 14px;
+    .cred-bar-inner {
+      max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1.25rem;
+      flex-wrap: wrap; gap: 0.75rem 2.5rem;
     }
-    .feature-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: .6rem; }
-    .feature-card p { font-size: .9rem; color: var(--light); font-weight: 300; line-height: 1.7; }
+    .cred-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.78rem; font-weight: 500; color: var(--ink-60);
+      white-space: nowrap;
+    }
+    .cred-item .cred-icon { font-size: 1rem; }
+    .cred-divider { width: 1px; height: 20px; background: var(--ink-10); }
 
-    /* ── SCIENCE STRIP ───────────────────────────────────── */
-    .science {
-      background: linear-gradient(135deg, rgba(184,224,210,0.08), rgba(255,107,157,0.06));
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
+    /* ── EXPERTISE ────────────────────────────────── */
+    .expertise { background: var(--white); }
+    .expertise-inner { max-width: 1200px; margin: 0 auto; }
+    .expertise-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 2rem; margin-bottom: 3.5rem;
     }
-    .science blockquote {
-      max-width: 700px; margin: 0 auto;
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
-      font-weight: 600; line-height: 1.45; color: var(--white);
+    .expertise-sub { font-size: 0.95rem; font-weight: 300; color: var(--ink-60); max-width: 300px; line-height: 1.8; }
+
+    .expertise-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem;
     }
-    .science blockquote em { font-style: normal; color: var(--sage); }
-    .science cite {
-      display: block; margin-top: 1.5rem;
-      font-size: .85rem; color: var(--muted); font-style: normal; font-weight: 400;
+    .expertise-card {
+      background: var(--butter); border: 1.5px solid var(--ink-10);
+      border-radius: 20px; padding: 2.25rem;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .expertise-card:nth-child(1) { transform: rotate(-1deg); }
+    .expertise-card:nth-child(2) { transform: rotate(0.5deg); }
+    .expertise-card:nth-child(3) { transform: rotate(-0.5deg); }
+    .expertise-card:nth-child(4) { transform: rotate(1deg); }
+    .expertise-card:nth-child(5) { transform: rotate(-0.75deg); }
+    .expertise-card:nth-child(6) { transform: rotate(0.75deg); }
+    .expertise-card:hover {
+      transform: rotate(0deg) translateY(-6px) !important;
+      box-shadow: 0 20px 50px rgba(26,14,34,0.12); border-color: var(--coral);
+    }
+    .card-accent-blob {
+      position: absolute; top: -30px; right: -30px;
+      width: 100px; height: 100px; border-radius: 50%; opacity: 0.18; pointer-events: none;
+    }
+    .expertise-card:nth-child(1) .card-accent-blob { background: var(--coral); }
+    .expertise-card:nth-child(2) .card-accent-blob { background: var(--plum); }
+    .expertise-card:nth-child(3) .card-accent-blob { background: var(--gold); }
+    .expertise-card:nth-child(4) .card-accent-blob { background: var(--mint); }
+    .expertise-card:nth-child(5) .card-accent-blob { background: var(--coral); }
+    .expertise-card:nth-child(6) .card-accent-blob { background: var(--plum); }
+
+    .card-emoji { font-size: 2rem; margin-bottom: 1.25rem; line-height: 1; display: block; }
+    .expertise-card h3 { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.65rem; color: var(--ink); }
+    .expertise-card p { font-size: 0.875rem; color: var(--ink-60); font-weight: 300; line-height: 1.75; }
+
+    /* ── STATS BAND ───────────────────────────────── */
+    .stats-band {
+      background: var(--butter);
+      border-top: 1.5px solid var(--ink-10); border-bottom: 1.5px solid var(--ink-10);
+      padding: 0 5%;
+    }
+    .stats-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-cell {
+      padding: 3.5rem 2rem; text-align: center;
+      border-right: 1.5px solid var(--ink-10);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 900; line-height: 1; color: var(--ink); display: block; margin-bottom: 0.4rem;
+    }
+    .stat-num em { font-style: italic; color: var(--coral); }
+    .stat-label { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-60); }
+
+    /* ── WORK ─────────────────────────────────────── */
+    .work { background: var(--plum); position: relative; overflow: hidden; }
+    .work::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(240,180,41,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 80%, rgba(232,78,59,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .work-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .work .section-eyebrow { color: var(--gold); }
+    .work .section-title { color: var(--white); }
+    .apps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .app-card {
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 24px; padding: 2.5rem;
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 1.25rem;
+      transition: background 0.25s, transform 0.25s, border-color 0.25s;
+      backdrop-filter: blur(8px);
+    }
+    .app-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); border-color: rgba(255,255,255,0.25); }
+    .app-card-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(240,180,41,0.18); color: var(--gold);
+      border: 1px solid rgba(240,180,41,0.3); border-radius: 100px;
+      padding: 0.3rem 0.9rem; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; width: fit-content;
+    }
+    .app-card h3 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; }
+    .app-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.75; flex-grow: 1; }
+    .app-card-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.5px;
+      transition: gap 0.2s;
+    }
+    .app-card:hover .app-card-link { gap: 0.85rem; }
+    .app-card-ghost { border-style: dashed; background: transparent; opacity: 0.4; cursor: default; }
+    .app-card-ghost:hover { transform: none; background: transparent; }
+    .app-ghost-label { font-family: 'Caveat', cursive; font-size: 1.15rem; color: rgba(255,255,255,0.5); }
+
+    /* ── RESEARCH & SPEAKING ──────────────────────── */
+    .research { background: var(--white); }
+    .research-inner { max-width: 1100px; margin: 0 auto; }
+    .research-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3.5rem;
+    }
+    .research-col h3 {
+      font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .pub-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .pub-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.25rem; border-radius: 12px;
+      border: 1.5px solid var(--ink-10); background: var(--butter);
+      font-size: 0.83rem; color: var(--ink-60); line-height: 1.55;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .pub-item:hover { border-color: var(--coral-lt); background: #fff9f7; }
+    .pub-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--coral); flex-shrink: 0; margin-top: 5px;
+    }
+    .speak-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.25rem; border-radius: 12px;
+      border: 1.5px solid var(--ink-10); background: var(--butter);
+      margin-bottom: 0.75rem;
+      font-size: 0.83rem; color: var(--ink-60); line-height: 1.55;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .speak-item:hover { border-color: var(--plum-lt); background: #f9f5fc; }
+    .speak-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--plum); flex-shrink: 0; margin-top: 5px;
+    }
+    .speak-item strong, .pub-item strong { font-weight: 600; color: var(--ink); display: block; margin-bottom: 0.15rem; }
+    .research-note {
+      margin-top: 1rem; font-size: 0.78rem; color: var(--ink-30);
+      font-style: italic; padding-left: 0.25rem;
     }
 
-    /* ── STATS ───────────────────────────────────────────── */
-    .stats-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center;
+    /* ── APPROACH ─────────────────────────────────── */
+    .approach { background: var(--butter); }
+    .approach-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: start;
     }
-    .stat-item strong {
-      display: block; font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800; line-height: 1; margin-bottom: .4rem;
+    .approach-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+    .approach-item {
+      display: flex; gap: 1.5rem; padding: 1.75rem 0;
+      border-bottom: 1.5px solid var(--ink-10);
     }
-    .stat-item span { font-size: .9rem; color: var(--light); font-weight: 300; }
+    .approach-item:first-child { border-top: 1.5px solid var(--ink-10); }
+    .approach-num {
+      font-family: 'Caveat', cursive; font-size: 1.3rem; font-weight: 700;
+      color: var(--coral); flex-shrink: 0; width: 2.2rem; padding-top: 2px;
+    }
+    .approach-text h4 { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--ink); }
+    .approach-text p { font-size: 0.875rem; color: var(--ink-60); font-weight: 300; line-height: 1.75; }
+    .approach-right-col { padding-top: 1rem; }
+    .fun-callout {
+      background: var(--coral); border-radius: 24px; padding: 2.75rem;
+      color: var(--white); margin-bottom: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .fun-callout::after {
+      content: '✦'; position: absolute; bottom: -10px; right: 16px;
+      font-size: 6rem; opacity: 0.12; pointer-events: none; line-height: 1;
+    }
+    .fun-callout p {
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 1.4rem; font-weight: 300; line-height: 1.55;
+      position: relative; z-index: 1;
+    }
+    .fun-callout cite {
+      display: block; margin-top: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.65); font-style: normal;
+    }
+    .fun-tags-box {
+      background: var(--white); border: 1.5px solid rgba(240,180,41,0.3);
+      border-radius: 20px; padding: 1.75rem; display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+    .fun-tag {
+      background: var(--butter); border: 1.5px solid var(--ink-10);
+      border-radius: 10px; padding: 0.4rem 1rem;
+      font-size: 0.78rem; font-weight: 500; color: var(--ink);
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .fun-tag:hover { border-color: var(--coral); background: var(--coral-lt); }
 
-    /* ── DISCLAIMER ──────────────────────────────────────── */
-    .disclaimer {
-      background: rgba(255,179,71,0.06);
-      border: 1px solid rgba(255,179,71,0.2);
-      border-radius: 16px; padding: 1.5rem 2rem;
-      max-width: 780px; margin: 3rem auto 0;
-      text-align: center;
+    /* ── CONTACT ──────────────────────────────────── */
+    .contact { background: var(--white); text-align: center; position: relative; overflow: hidden; }
+    .contact::before {
+      content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,78,59,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .disclaimer p {
-      font-size: .85rem; color: rgba(255,255,255,0.65);
-      font-weight: 300; line-height: 1.7;
+    .contact-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+    .contact .section-title { margin-bottom: 1rem; }
+    .contact-sub { font-size: 1rem; font-weight: 300; color: var(--ink-60); margin-bottom: 2.5rem; line-height: 1.8; }
+    .contact-email-wrap {
+      display: inline-flex; align-items: center; gap: 1rem;
+      background: var(--butter); border: 1.5px solid var(--ink-10);
+      border-radius: 100px; padding: 0.8rem 0.8rem 0.8rem 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .disclaimer strong { color: var(--mango); font-weight: 600; }
+    .contact-email-wrap:hover { border-color: var(--coral); box-shadow: 0 8px 30px rgba(232,78,59,0.12); }
+    .contact-email-wrap span { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; color: var(--ink); }
+    .contact-email-wrap a {
+      background: var(--coral); color: var(--white); border-radius: 100px;
+      padding: 0.55rem 1.4rem; font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .contact-email-wrap a:hover { background: var(--plum); }
 
-    /* ── CTA ─────────────────────────────────────────────── */
-    .cta { text-align: center; }
-    .cta .section-title { color: var(--white); }
-    .cta p { color: var(--light); max-width: 480px; margin: 0 auto 2.5rem; font-weight: 300; }
-    .cta-primary {
-      display: inline-block;
-      background: var(--rose); color: var(--white);
-      padding: 1rem 2.5rem; border-radius: 32px;
-      font-size: 1rem; font-weight: 600; text-decoration: none;
-      transition: opacity .2s, transform .2s;
-    }
-    .cta-primary:hover { opacity: .9; transform: translateY(-1px); }
-
-    /* ── FOOTER ──────────────────────────────────────────── */
+    /* ── FOOTER ───────────────────────────────────── */
     footer {
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 3rem 5%;
-      display: flex; flex-wrap: wrap; gap: 2rem;
+      background: var(--ink); padding: 3rem 5%;
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
       align-items: center; justify-content: space-between;
     }
-    .footer-logo { display: flex; align-items: center; gap: 8px; }
-    .footer-logo span { font-size: 1rem; font-weight: 700; letter-spacing: 3px; color: var(--muted); }
+    .footer-logo { display: flex; align-items: center; gap: 0.4rem; font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 900; color: rgba(255,255,255,0.5); }
+    .footer-logo-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); opacity: 0.6; }
     .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-links a {
-      color: var(--muted); text-decoration: none;
-      font-size: .85rem; font-weight: 400; transition: color .2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy { font-size: .8rem; color: var(--muted); width: 100%; }
+    .footer-links a { color: rgba(255,255,255,0.3); text-decoration: none; font-size: 0.8rem; font-weight: 400; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); width: 100%; letter-spacing: 0.5px; }
 
-    /* ── RESPONSIVE ──────────────────────────────────────── */
+    /* ── ANIM ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 900px) {
+      .approach-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .research-grid  { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-inner    { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .store-buttons { flex-direction: column; align-items: center; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none; border-bottom: 1.5px solid var(--ink-10); }
+      .stat-cell:last-child { border-bottom: none; }
       footer { flex-direction: column; align-items: flex-start; }
+
+      .cred-divider { display: none; }
     }
   </style>
 </head>
@@ -240,43 +481,287 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="/" class="nav-logo">
-    <span>MMF Labs</span>
-    <!-- <div class="nav-dot"></div> -->
+    <span class="nav-logo-text">MMF Labs</span>
+    <span class="nav-logo-dot"></span>
   </a>
-  <div class="nav-links">
-    <!-- <a href="#features">Features</a> -->
-    <!-- <a href="#science">Science</a> -->
-    <a href="solide.html">Solide</a>
-    <!-- <a href="terms.html">Terms</a> -->
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <!-- <a href="#research">Research</a> -->
+      <a href="#work">Work</a>
+      <a href="solide.html">Solide ↗</a>
+    </div>
+    <a href="#contact" class="nav-cta">Say hello ✦</a>
   </div>
-  <!-- <a href="#download" class="nav-cta">Download free</a> -->
 </nav>
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <p class="hero-eyebrow">AI · Science · Product</p>
-  <h1>MMF<br/><em>Labs</em></h1>
-  <p>AI and product expertise</p>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">✧</span>
+  <span class="sparkle">✦</span>
+  <span class="sparkle">★</span>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      AI Research · Product · Geospatial
+    </p>
+    <h1>
+      MMF<br/>
+      <span class="underline-word">Labs</span><span class="italic-word">.</span>
+    </h1>
+    <div class="hero-sub-row">
+      <p class="hero-desc">
+        We turn cutting-edge AI research into products that reach real people — from computer vision to geospatial intelligence to consumer apps.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">🧠 AI Research</span>
+        <span class="tag plum">👁️ Computer Vision</span>
+        <span class="tag">🗺️ Geospatial</span>
+        <span class="tag gold">📱 Mobile / Web</span>
+        <span class="tag plum">📖 Published</span>
+        <span class="tag">🎤 Speaker</span>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">Let's work together →</a>
+      <a href="#work" class="btn-secondary">See our work</a>
+    </div>
+  </div>
 </section>
 
-<!-- ── FEATURES ── -->
-<section class="features" id="features">
-  <div class="features-header">
-    <h2 class="section-title">The expertise<br/>you need</h2>
-    <p class="section-sub">10+ years of experience</p>
+<!-- ── CREDIBILITY BAR ── -->
+<div class="cred-bar">
+  <div class="cred-bar-inner">
+    <span class="cred-item"><span class="cred-icon">🏆</span> Award-winning AI product</span>
+    <span class="cred-divider"></span>
+    <span class="cred-item"><span class="cred-icon">📖</span> Published book author</span>
+    <span class="cred-divider"></span>
+    <span class="cred-item"><span class="cred-icon">🎤</span> TEDx &amp; Stanford speaker</span>
+    <span class="cred-divider"></span>
+    <span class="cred-item"><span class="cred-icon">🔬</span> 12+ peer-reviewed publications</span>
+    <span class="cred-divider"></span>
+    <span class="cred-item"><span class="cred-icon">🏥</span> Deployed in clinical settings</span>
+    <span class="cred-divider"></span>
+    <span class="cred-item"><span class="cred-icon">✦</span> 10+ years experience</span>
+  </div>
+</div>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><strong>Computer Vision</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Medical AI</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Geospatial DL</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>MLOps</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Active Learning</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Foundation Models</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Product Strategy</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Mobile Apps</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Published Research</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Real Deployments</em> <span class="marquee-sep">✧</span></span>
+    <!-- duplicate -->
+    <span class="marquee-item"><strong>Computer Vision</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Medical AI</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Geospatial DL</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>MLOps</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Active Learning</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Foundation Models</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Product Strategy</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Mobile Apps</em> <span class="marquee-sep">✧</span></span>
+    <span class="marquee-item"><strong>Published Research</strong> <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item"><em>Real Deployments</em> <span class="marquee-sep">✧</span></span>
+  </div>
+</div>
+
+<!-- ── EXPERTISE ── -->
+<section class="expertise" id="expertise">
+  <div class="expertise-inner">
+    <div class="expertise-header">
+      <div>
+        <span class="section-eyebrow">what we do →</span>
+        <h2 class="section-title">Deep expertise,<br/><em>real results.</em></h2>
+      </div>
+      <p class="expertise-sub">
+        Research-grade AI combined with 10+ years of shipping products in the real world.
+      </p>
+    </div>
+
+    <div class="expertise-grid">
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">🧠</span>
+        <h3>AI Research & Strategy</h3>
+        <p>LLM integration, foundation model fine-tuning, and AI product strategy. We bridge the gap between cutting-edge research and production systems.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">👁️</span>
+        <h3>Computer Vision</h3>
+        <p>Video understanding, object detection, semantic segmentation, and self-supervised learning. Deployed in demanding real-world environments from sawmills to operating rooms.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">🗺️</span>
+        <h3>Geospatial Intelligence</h3>
+        <p>Spatial deep learning, satellite imagery analysis, and location-aware features. From conservation mapping to urban mobility — we've worked across the globe.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">⚙️</span>
+        <h3>MLOps & Infrastructure</h3>
+        <p>Active learning pipelines, labeling strategy, inference optimisation (TensorRT, ONNX), and end-to-end ML platforms that scale from prototype to production.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">📐</span>
+        <h3>Product Development</h3>
+        <p>From 0 to 1 and beyond. We help teams define, prioritise, and ship products that solve real problems — with the technical depth to build them ourselves.</p>
+      </div>
+      <div class="expertise-card">
+        <div class="card-accent-blob"></div>
+        <span class="card-emoji">📱</span>
+        <h3>Mobile & Web</h3>
+        <p>Full-stack apps from design to deployment. We've built and launched products solo on iOS, Android, and web — and grown them to thousands of users.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-cell">
+      <span class="stat-num">10<em>+</em></span>
+      <span class="stat-label">Years experience</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">12<em>+</em></span>
+      <span class="stat-label">Publications</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">3<em>k+</em></span>
+      <span class="stat-label">App users</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num"><em>∞</em></span>
+      <span class="stat-label">Curiosity for craft</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORK ── -->
+<section class="work" id="work">
+  <div class="work-inner">
+    <span class="section-eyebrow">our work →</span>
+    <h2 class="section-title">Apps we've <em>built.</em></h2>
+    <div class="apps-grid">
+      <a href="solide.html" class="app-card">
+        <span class="app-card-chip">✦ Live App · Health</span>
+        <h3>Solide</h3>
+        <p>A science-backed habit and wellness app. Built from the ground up — product, design, and engineering all under one roof.</p>
+        <span class="app-card-link">View Solide →</span>
+      </a>
+      <div class="app-card app-card-ghost">
+        <span class="app-ghost-label">✧ something's brewing…</span>
+        <h3 style="color:rgba(255,255,255,0.35); font-family:'Fraunces',serif;">Next Project</h3>
+        <p style="color:rgba(255,255,255,0.25);">We're always building. Stay tuned.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── APPROACH ── -->
+<section class="approach">
+  <div class="approach-inner">
+    <div>
+      <span class="section-eyebrow">how we work →</span>
+      <h2 class="section-title">Research-grade.<br/><em>Startup-fast.</em></h2>
+      <div class="approach-list">
+        <div class="approach-item">
+          <span class="approach-num">01</span>
+          <div class="approach-text">
+            <h4>Understand deeply</h4>
+            <p>We spend time understanding your problem before writing a single line of code. Rigorous thinking from day one.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <span class="approach-num">02</span>
+          <div class="approach-text">
+            <h4>Bring real research depth</h4>
+            <p>We don't just use AI tools — we build them. Our work is grounded in published research and real production deployments.</p>
+          </div>
+        </div>
+        <div class="approach-item">
+          <span class="approach-num">03</span>
+          <div class="approach-text">
+            <h4>Ship and iterate</h4>
+            <p>High-quality increments, honest communication, and a bias for things that are actually done — not just demoed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="approach-right-col">
+      <div class="fun-callout">
+        <p>"Good AI products aren't about adding AI — they're about removing friction for real people."</p>
+        <cite>MMF Labs philosophy</cite>
+      </div>
+      <div class="fun-tags-box">
+        <span class="fun-tag">Python</span>
+        <span class="fun-tag">PyTorch</span>
+        <span class="fun-tag">TensorRT</span>
+        <span class="fun-tag">ONNX</span>
+        <span class="fun-tag">OpenCV</span>
+        <span class="fun-tag">HuggingFace</span>
+        <span class="fun-tag">LLMs / RAG</span>
+        <span class="fun-tag">PostGIS</span>
+        <span class="fun-tag">GEE</span>
+        <span class="fun-tag">React Native</span>
+        <span class="fun-tag">Next.js</span>
+        <span class="fun-tag">AWS</span>
+        <span class="fun-tag">Docker</span>
+        <span class="fun-tag">Encord</span>
+        <span class="fun-tag">+ more</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <span class="section-eyebrow">say hello ✦</span>
+    <h2 class="section-title">Let's build<br/>something <em>great.</em></h2>
+    <p class="contact-sub">
+      Have a project in mind? Whether it's AI strategy, a computer vision system, or a product you need to ship — we'd love to hear about it.
+    </p>
+    <div class="contact-email-wrap">
+      <span>contact@mmf-labs.com</span>
+      <a href="mailto:contact@mmf-labs.com">Send a note →</a>
+    </div>
   </div>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">
-    <span>MMF Labs</span>
+    MMF Labs <span class="footer-logo-dot"></span>
   </div>
-
+  <div class="footer-links">
+    <a href="solide.html">Solide</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
   <p class="footer-copy">
     &copy; <script>document.write(new Date().getFullYear())</script> MMF Labs. All rights reserved.
   </p>
 </footer>
+
 
 </body>
 </html>
