@@ -316,6 +316,15 @@
       transition: gap 0.2s;
     }
     .app-card:hover .app-card-link { gap: 0.85rem; }
+    .app-card-shot { width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); display: block; }
+    .app-card-platforms { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .app-card-platforms span {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px; padding: 0.25rem 0.75rem;
+    }
+    .app-card-static { cursor: default; }
+    .app-card-static:hover { transform: none; background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); }
     .app-card-ghost { border-style: dashed; background: transparent; opacity: 0.4; cursor: default; }
     .app-card-ghost:hover { transform: none; background: transparent; }
     .app-ghost-label { font-family: 'Caveat', cursive; font-size: 1.15rem; color: rgba(255,255,255,0.5); }
@@ -489,7 +498,7 @@
       <a href="#expertise">Expertise</a>
       <!-- <a href="#research">Research</a> -->
       <a href="#work">Work</a>
-      <a href="solide.html">Solide ↗</a>
+      <a href="https://www.solide-app.com/" target="_blank" rel="noopener">Solide ↗</a>
     </div>
     <a href="#contact" class="nav-cta">Say hello ✦</a>
   </div>
@@ -669,12 +678,31 @@
     <span class="section-eyebrow">our work →</span>
     <h2 class="section-title">Apps we've <em>built.</em></h2>
     <div class="apps-grid">
-      <a href="solide.html" class="app-card">
+      <a href="https://www.solide-app.com/" target="_blank" rel="noopener" class="app-card">
         <span class="app-card-chip">✦ Live App · Health</span>
         <h3>Solide</h3>
         <p>A science-backed habit and wellness app. Built from the ground up — product, design, and engineering all under one roof.</p>
         <span class="app-card-link">View Solide →</span>
       </a>
+      <a href="https://www.theclimatemenu.com/" target="_blank" rel="noopener" class="app-card">
+        <span class="app-card-chip">✦ Live App · Climate</span>
+        <h3>The Climate Menu</h3>
+        <p>Food choices and their climate impact, made easy to understand. Available on web, iOS and Android.</p>
+        <div class="app-card-platforms"><span>Web</span><span>iOS</span><span>Android</span></div>
+        <span class="app-card-link">View The Climate Menu →</span>
+      </a>
+      <div class="app-card app-card-static">
+        <span class="app-card-chip">✧ Coming soon · Sport</span>
+        <h3>Open Water Tracker</h3>
+        <img class="app-card-shot" src="assets/open-water-tracker.webp" alt="Open Water Tracker overview screen" loading="lazy">
+        <p>Train smart, swim far: plan sessions and estimate race times for open water swimming.</p>
+      </div>
+      <div class="app-card app-card-static">
+        <span class="app-card-chip">✧ Coming soon · Marketing</span>
+        <h3>Marketing App</h3>
+        <img class="app-card-shot" src="assets/marketing-app.webp" alt="Marketing app dashboard with funnel and weekly quests" loading="lazy">
+        <p>A growth dashboard that turns your funnel into a weekly plan of marketing quests.</p>
+      </div>
       <div class="app-card app-card-ghost">
         <span class="app-ghost-label">✧ something's brewing…</span>
         <h3 style="color:rgba(255,255,255,0.35); font-family:'Fraunces',serif;">Next Project</h3>
@@ -761,7 +789,7 @@
     MMF Labs <span class="footer-logo-dot"></span>
   </div>
   <div class="footer-links">
-    <a href="solide.html">Solide</a>
+    <a href="https://www.solide-app.com/" target="_blank" rel="noopener">Solide</a>
     <a href="#expertise">Expertise</a>
     <a href="#research">Research</a>
     <a href="#contact">Contact</a>
